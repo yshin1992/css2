@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>属性选择器</title>
+<style>
+/*简单属性选择器*/
+p[class]{color:silver;font-style:italic}
+/*具体属性值选择器*/
+input[type="text"]{font-style:normal;background-color:silver;font-size:12px;color:red;}
+/*部分属性选择器*/
+p[class~="warn"]{color:blue;}
+/*子串匹配属性选择器*/
+span[class^="he"]{color:white;background:gray;font-weight:bold;}
+span[class$="suc"]{color:white;background:gray;font-style:italic;}
+span[class*="help"]{color:white;background:black;font-weight:bold;}
+/*特定属性选择器*/
+*[lang|="en"]{font-size:18px;color:green}
+</style>
+</head>
+<body>
+<p class="sivler">1.简单属性选择器:选择有某个属性的元素（不论该属性的值是什么），例如p[title],div[id][title]等等</p>
+<p>2.具体属性选择器:根据具体的属性值去选择。如p[id="para"]，下面使用input[type="text"]来演示:<br/>
+<input type="text" />
+</p>
+<p class="urgent warn">3.使用部分属性选择:如果属性可以接受词列表（词之间以空格分隔），可以根据其中任何一个词进行选择。例如p[class="urgent warn"]可以适配p[class~="warn"]的样式规则</p>
+<p>4.子串匹配属性选择器：顾名思义，属性的值以某个值<span class="hello success">开头（^）</span>、<span class="lala suc">结尾（$）</span>及<span class="younghelp plan">包含（*）</span>时使用的选择器。
+</p>
+<p>5.特定属性选择器：选择以某个值如en开头或en-开头的元素。最常用的为<span lang="en-us">*[lang|=en]</span></p>
+</body>
+</html>

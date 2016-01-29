@@ -1,0 +1,16 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>后代选择器</title>
+<style>
+/*利用上下文*/
+h1 em{color:gray}
+/*子元素选择器*/
+p>strong{color:white;font-weight:bolder;font-size:20px;background:gray;}
+</style>
+</head>
+<body>
+<h1>Market <em>Central</em></h1>
+<p>子元素选择器:<strong>使用子元素</strong>选择器<span>这个元素不会被选中<strong>Strong</strong></span></p>
+</body>
+</html>
