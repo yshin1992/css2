@@ -8,10 +8,26 @@
 h1 em{color:gray}
 /*子元素选择器*/
 p>strong{color:white;font-weight:bolder;font-size:20px;background:gray;}
+/* 相邻兄弟元素选择器 */
+div > ul li { display:inline;background-color:yellow;}
+div > ul li+li{border-left:1px solid gray;}
+/* 伪类 */
+li>a{padding:3px 10px;}
+li > a:link,li>a:visited{background-color:yellow;}
+li > a:hover,li>a:active{background-color:orange;}
+input[class="focus-text"]:focus{background:gray;}
 </style>
 </head>
 <body>
 <h1>Market <em>Central</em></h1>
 <p>子元素选择器:<strong>使用子元素</strong>选择器<span>这个元素不会被选中<strong>Strong</strong></span></p>
-</body>
+<div>
+	<h3>选择相邻兄弟元素</h3>
+	<ul>
+		<li><a href="#">A</a></li></li><li><a href="#">B</a></li></li><li><a href="#">C</a></li></li><li><a href="#">D</a></li>
+	</ul>
+</div>
+<div>伪类的顺序: link -> visited -> focus -> hover -> active</div>
+<p>focus实例:<input type="text" class="focus-text"/></p>
+<body>
 </html>
