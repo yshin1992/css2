@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>伪元素选择器</title>
+<style>
+/*设置首字母样式*/
+h3:first-letter{color:red;font-size:200%}
+/*设置首行样式*/
+p:first-line{color:purple}
+/*设置之前和之后的元素样式*/
+h2:before{content:"[[";color:silver}
+h2:after{content:"]]";color:silver}
+</style>
+</head>
+<body>
+	<h3>first-letter首字母样式</h3>
+	<p>首行样式:This is a pragraph of text<br/>that has only one stylesheet applied to it.</p>
+	<h2>设置之前:before和之后:after样式</h3>
+</body>
+</html>
