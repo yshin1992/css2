@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>继承</title>
+<style>
+p{color:gray;}
+#toolbar {color:white;background:black;}
+#toolbar a{text-decoration:none;color:white;}/*由于浏览器的默认样式的缘故，这里必须声明超链接的颜色为白色，继承的值没有特殊性因而被浏览器默认样式所覆盖*/
+</style>
+</head>
+<body>
+	<p>这个段落的文本颜色被设置为灰色，由于继承的关系<em>em内的文本</em>也将是灰色</p>
+	<p>继承能带来很多好处，但是并不是所有的元素都能被继承，例如外边距、内边距、背景和边框都不能被继承。另外，继承的值根本没有任何特殊性，连0特殊性都没有。</p>
+	<div id="toolbar"><a href="#">HOME | Products | Services | Contact | About</a></div>
+</body>
+</html>
