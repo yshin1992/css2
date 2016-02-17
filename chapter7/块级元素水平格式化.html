@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>块级元素水平格式化</title>
+<style>
+code{background-color:gray;color:white;}
+</style>
+</head>
+<body>
+<p>水平格式化的7大属性：margin-left,border-left,padding-left,width,padding-right,border-right,margin-right.在这7大属性中可以设置为<code>auto</code>的只有<code>margin-left</code>,<code>width</code>,<code>margin-right</code>.</p>
+<h3>使用auto</h3>
+<h3>全部使用非auto的值：这时会将margin-right强制设为auto</h3>
+<p>假如这7个属性的和等于400px，<code>p{margin:100px;width:100px}</code>，此时会将margin-right强制设为200px。
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:0 100px;width:100px;">margin-right=200px</p></div>
+</p>
+<h3>只使用一个auto</h3>
+<p>如果设置width、margin-left或margin-right中的某个值为auto，剩下的两个值指定为特定的值，那么auto的属性就会确定所需的长度。<br/>
+例：假设7个属性的和必须等于400像素，则：
+<br/><code>p{margin-left:auto;margin-right:100px;width:100px;}/* ‘auto’ left margin evaluates to 200px */</code>
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin-left:auto;margin-right:100px;width:100px;">margin-left=200px</p></div>
+</p>
+<h3>使用两个auto</h3>
+</body>
+</html>
