@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>处理空白符</title>
+<style>
+p.normal{white-space:normal;}
+p.nowrap{white-space:nowrap;}
+p.pre{white-space:pre;}
+p.pre-wrap{white-space:pre-wrap;}
+p.pre-line{white-space:pre-line;}
+</style>
+</head>
+<body>
+	<h3>处理空白符white-space</h3>
+	<p>white-space:normal,nowrap,pre,pre-wrap,pre-line,inherit.</p>
+	<p>white-space的默认值normal会丢掉多余的空格，并且换行符也会转换为空格</p>
+	<p class="normal">This paragraph    has    many 
+	space	in it.</p>
+	<p>white-space的值为pre时，相当于&lt;pre&gt;标签，浏览器会注意多余的空格和换行符。</p>
+	<p class="pre">This paragraph    has    many 
+	space	in it.</p>
+	<p>white-space的值为nowarp时，除非使用br元素来换行，相当于&lt;td nowrap&gt;.</p>
+	<P>white-space的值为pre-wrap时，会保留空白符.</p>
+	<p class="pre-wrap">This paragraph    has    many 
+	space	in it.</p>
+	<P>white-space的值为pre-line时，与pre-wrap相反，会像正常文本一样合并空白符。</p>
+	<p class="pre-line">This paragraph    has    many 
+	space	in it.</p>
+	<img src="images/white_space.png"/>
+</body>
+</html>

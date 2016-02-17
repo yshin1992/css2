@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>字间隔和字母间隔</title>
+<style>
+p.spread{word-spacing:0.5em;}
+p.tight{word-spacing:-0.5em;}
+p.base{word-spacing:normal;}
+p.norm{word-spacing:0em;}
+p{letter-spacing:0;}
+p.spacious{letter-spacing:0.25em;}
+p.tight_letter{letter-spacing:-0.25em;}
+</style>
+</head>
+<body>
+	<h3>字间隔word-spacing的值包括：&lt;length&gt;,normal,inherit.它的默认值是normal,应用于所有的元素，并且有继承性.</h3>
+	<p class="spread">The spaces between words in this paragraph will be increased by 0.5em.</p>
+	<p class="tight">The spaces between words in this paragraph will be increased by -0.5em.</p>
+	<p class="base">The spaces between words in this paragraph will be normal.</p>
+	<p class="norm">The spaces between words in this paragraph will be normal.</p>
+	<h3>字母间隔letter-spacing:&lt;length&gt;,normal,inherit.默认值是normal,应用于所有的元素，并且有继承性。</h3>
+	<p>The letters in this paragraph are spaced as normal.</p>
+	<p class="spacious">The letters in this paragraph are spread out a bit.</p>
+	<p class="tight_letter">The letters in this paragraph are a bit smashed together.</p>
+	<h3>间隔和对齐</h3>
+	<p>word-spacing的值可能受text-align属性的影响。当text-align为justify的时候，word-spacing的值就可能会发生变化。如果letter-spacing指定为非默认值normal的时候就不会受水平对齐的影响.</p>
+</body>
+</html>

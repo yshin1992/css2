@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>文本装饰</title>
+<style>
+p.emph{text-decoration:underline;}
+p.topper{text-decoration:overline;}
+p.old{text-decoration:line-through;}
+p.annoy{text-decoration:blink;}
+span.plain,p.plain{text-decoration:none;color:gray;}
+code{background:gray;color:white;}
+p.warn{color:red;}
+</style>
+</head>
+<body>
+	<p class="emph">这段文本将会使用下划线<code>text-decoration:underline</code></p>
+	<p class="topper">这段文本将会使用下划线<code>text-decoration:overline</code></p>
+	<p class="old">这段文本将会使用下划线<code>text-decoration:line-through</code></p>
+	<p class="annoy">这段文本将会使用下划线<code>text-decoration:blink</code></p>
+	<p class="plain">这段文本将会使用下划线<code>text-decoration:none</code></p>
+	<h4>使用文本装饰时要注意的一些事情:</h4>
+	<p>text-decoration:none,underline,overline,line-through,blink,inherit,它没有继承性。</p>
+	<p class="emph">我们都有<span class="plain"> 我没有下划线 </span>下划线</p>
+	<p>上面的实例中，虽然“我没有下划线”使用了<code>text-decoration:none</code>来"消除"下划线，但是失败了。而且由于<code>text-decoration</code>没有继承性，所以穿过“我没有下划线”的下划线颜色依然是黑色。</p>
+	<p>虽然不能“抹除”下划线，但是可以改变穿过某一元素下划线的颜色，例如<code>text-decoration:underline;color:gray;</code>就可以将穿越自身的下划线的颜色变成灰色。</p>
+	<p class="warn">注意，我们没有直接的办法去消除父元素留下的下划线</p>
+</body>
+</html>

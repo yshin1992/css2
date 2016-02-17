@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>垂直对齐</title>
+<style>
+.baseline{vertical-align:baseline;}
+span.raise{vertical-align:super}
+span.lower{vertical-align:sub;}
+.feeder{vertical-align:bottom;}
+.tbottom{vertical-align:text-bottom;}
+.middle{vertical-align:middle}
+span.sub{vertical-align:-100%;}
+span.sup{vertical-align:100%;}
+</style>
+</head>
+<body>
+	<h3>垂直对齐vertical-align</h3>
+	<h4>vertical-align:&lt;percentage&gt;,&lt;length&gt;,baseline,sub,super,bottom,text-bottom,middle,top,text-top.并且它只能应用于行内元素和表单元格，没有继承性。它的百分数的值是相对其line-height而言的。</h4>
+	<h3>基线对齐实例</h3>
+	<p>这个图像是基线对齐的。<img class="baseline" src='images/jquery_logo.png'/>这个图像将在基线上。</p>
+	<h3>底端对齐实例</h3>
+	<p>这个图像是底端对齐的。<img class="feeder" src='images/jquery_logo.png'/>vertical-align:bottom将元素行内框的底端与行框的底端对齐。</p>
+	<h3>文本底端对齐实例</h3>
+	<p>这个图像是文本底端对齐的。<img class="tbottom" src='images/jquery_logo.png'/>vertical-align:text-bottom是指行内文本的底端。替换元素或任何其他类型的非文本元素会忽略这个值。对于这些元素，将由父元素的font-size得到的默认的文本框的底端与其对齐。</p>
+	<h3>顶端对齐实例</h3>
+	<p>vertical-align:top/text-top;<img class="baseline" src="images/jquery_logo.png"/>接下来看看top的表现：<span style="vertical-align:top">top</span>,再看看text-top的表现:<span style="vertical-align:text-top">text-top</span>.
+	<h3>居中对齐实例</h3>
+	<p>vertical-align:middle<img class="middle" src="images/jquery_logo.png" />这个图像将会居中对齐。</p>
+	<h3>上标和下标</h3>
+	<p>This paragraph contains <span class="raise">superscripted</span> and <span class="lower">subscripted</span> text.
+	<h3>百分数</h3>
+	<p style="line-height:10px;">如果为<span class="sub">line-height</span>设置一个百分数，会把元素的基线相对于父元素的基线上升指定的量,这个百分数的值要根据该元素的<span class="sup">line-height</span>值来计算。</p>
+	<h3>长度对齐</h3>
+	<p>使用指定的长度来提升元素与基线的距离。<span style="vertical-align:5px;">元素抬高5像素</span></p>
+</body>
+</html>
