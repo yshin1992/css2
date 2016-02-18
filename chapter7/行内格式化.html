@@ -32,7 +32,13 @@ small{font-size:10px;}
 	<p>尽管<code>strong</code>部分的字体较大，但是行高任然是16px.注意：这里尽管strong元素与其他文本元素的行内框(line-height)相同,但是他们排列的并不整齐，因为文本都是按基线排列的。而行内框确定了整个行框的高度。行框定义为行中最高行内框顶端到最低行内框底端的之间的距离。注意观察下面这个例子:
 	<p style="font-size:12px;"><span style="border:1px solid;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br/>that is <strong style="font-size:24px;">strongly emphasized</strong>, strong text</br>
 	that is normal text  is normal text </span></p>
-
+	<h3>再来看看这个例子,这里<code>strong</code>部分的行高设置为24px</h3>
+	<p style="font-size:12px;"><span style="border:1px solid;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br/>that is <strong style="line-height:24px;border:1px solid;font-size:24px;">strongly emphasized</strong>, strong text</br>
+	that is normal text  is normal text </span></p>
+	<p>这个例子中，<code>strong</code>部分的内容“超过”其行高24px，它的真实高度是35px，由于行框是有各个行内框的最高点和最低点构成的，因此第二行的行高是24px（行内框的高度等于行高）。</p>
+	<p>接下来，我们让第二行的<code>strong</code>部分为35px看看</p>
+	<p style="font-size:12px;"><span style="border:1px solid;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br/>that is <strong style="line-height:35px;border:1px solid;font-size:24px;">strongly emphasized</strong>, strong text</br>
+	that is normal text  is normal text </span></p>
 	</p>
 </body>
 </html>
