@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>块级元素垂直格式化</title>
+<style>
+.warn{color:red;font-style:italic;}
+code{background:gray;color:white;}
+ul li{margin-top:10px;margin-bottom:15px;background:silver;}
+</style>
+</head>
+<body>
+	<h3>垂直格式化</h3>
+	<h3>一个元素的默认高度由其内容决定。</h3>
+	<p>如果指定高度大于显示内容所需的高度，则会产生类似于额外的内边距一样的东西。而如果元素内容高度大于元素框的高度，由overflow属性的值决定。</p>
+	<h4>垂直属性:margin-top, border-top, padding-top, height, padding-bottom, border-bottom, margin-bottom.这之中，只有height及上下边距能被设置为auto.</h4>
+	<h4>注意：在正常流的一个块元素的margin-top或margin-bottom设置为auto，它会自动计算为0。</h4>
+	<h3>百分数高度</h3>
+	<p>如果一个块级正常流元素的height设置为一个百分数，这个值则是包含块的一个百分数。<br/>例如：下面的段落高度会被设置为3em<br/>
+	<code>&lt;div style="height:6em;"&gt;&lt;p style="height:50%"&gt;Half as tall&lt;/p&gt;&lt;/div&gt;</code>
+	<div style="height:6em;border:1px solid"><p style="height:50%;border:1px solid">Half as tall</p></div>
+	</p>
+	<p>如果没有显示的声明包含块的height，百分数高度会被重置为auto。<span class="warn">高度为auto时，显示其内容恰好足以包含其内联内容的行盒.</span>
+	<br/><code>&lt;div style="height:auto;"&gt;&lt;p style="height:50%"&gt;Half as tall&lt;/p&gt;&lt;/div&gt;</code>
+	<div style="border:1px solid"><p style="height:50%;border:1px solid">Half as tall</p></div>
+	</p>
+	<h3>auto高度</h3>
+	<p class="warn">如果块级正常流元素的高度设置为auto，而且只有块级子元素，其默认高度将是从块级子元素的上外边框(border-top)到块级子元素下外边框(border-bottom)之间的距离。<br/>
+	如果块级元素有上内边距或下内边距，或者上边框或下边框，则高度则是从其子元素的上外边距边界(margin-top)到子元素的下外边界(margin-bottom)之间的距离。
+	</p>
+	<div style="height:auto;background:silver">
+		<p style="margin-top:2em;margin-bottom:2em;border:1px solid red">A paragraph</p>
+	</div>
+	<div style="height:auto;background:silver;border-top:1px solid black;border-bottom:1px solid black;">
+		<p style="margin-top:2em;margin-bottom:2em;border:1px solid red">Another paragraph</p>
+	</div>
+	<div style="height:auto;background:silver;padding-top:1px;padding-bottom:1px;">
+		<p style="margin-top:2em;margin-bottom:2em;border:1px solid red">Another paragraph</p>
+	</div>
+	<h3>合并垂直外边距</h3>
+	<p>垂直外边距的一个重要方面就是垂直相邻的外边距的合并。这种合并只应用于外边距，内边距和边框绝不会合并。</p>
+	<ul>
+		<li>list item1</li><li>list item2</li><li>list item3</li>
+	</ul>
+	<p>上面的列表的css代码：<code>ul li{margin-top:10px;margin-bottom:15px;background:silver;}</code>,但是列表间的上下间距并不是10+15=25px，而是15px。这是因为上下边距发生了合并（或者说是重叠）</p>
+</body>
+</html>

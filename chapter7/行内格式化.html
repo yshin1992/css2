@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>行内格式化</title>
+<style>
+code{background:gray;color:white;}
+p.spacious{line-height:24px;background:silver}
+small{font-size:10px;}
+</style>
+</head>
+<body>
+	<h3>行内格式化</h3>
+	<p>所有的元素都有一个<code>line-height</code>,但是实际上只影响行内元素和其他行内内容，不影响块级元素。可以为块级元素设置行高，但是这个值只是应用到块级元素的内联内容时才有影响。</p>
+	<p>下面这个段落设置了样式<code>line-height:1em;border:1px dotted;</code>但是由于没有内容，只看到了两条重叠在一起的线</p>
+	<p style="line-height:1em;border:1px dotted"></p>
+	<h4>CSS规范规定：在块级元素上声明line-height会为该块元素的内容设置一个最小行框高度。</h4>
+	<p>对于<code>p.spacious{line-height:24px;}</code>意味着每个行框的最小高度为24px。
+	<p class="spacious">这个段落的行高为24px<br/>
+	<small>small</small><br/>这个段落的行高为24px</p>
+	<p>上述段落中即使是small,它的好高依然会是从父元素中继承的24px。</p>
+	<h3>行内非替换元素</h3>
+	<p>首先来看看行内非替换元素或匿名文本是如何建立框的。<br/>
+	<ol>
+		<li>根据font-size确认内容区的高度，如果font-size为15px，则元素中所有内容的em框的高度都是15px。</li>
+		<li>根据line-height的值，将其与font-size的值的差一分为二分别应用于内容区的顶部和底部。</li>
+	</ol>
+	<p>这样就得到了行内框<br/><img src="images/linebox2.png"/></p>
+	<p>下面看一个例子：
+	<p style="font-size:16px;line-height:16px"><span style="border:1px solid">This is text,that is <strong style="font-size:28px;border:1px dotted">strongly emphasized</strong> and</span></p>
+	</p>
+	<p>尽管<code>strong</code>部分的字体较大，但是行高任然是16px.注意：这里尽管strong元素与其他文本元素的行内框(line-height)相同,但是他们排列的并不整齐，因为文本都是按基线排列的。而行内框确定了整个行框的高度。行框定义为行中最高行内框顶端到最低行内框底端的之间的距离。注意观察下面这个例子:
+	<p style="font-size:12px;"><span style="border:1px solid;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br/>that is <strong style="font-size:24px;">strongly emphasized</strong>, strong text</br>
+	that is normal text  is normal text </span></p>
+
+	</p>
+</body>
+</html>

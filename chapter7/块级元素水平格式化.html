@@ -12,14 +12,28 @@ code{background-color:gray;color:white;}
 <h3>使用auto</h3>
 <h3>全部使用非auto的值：这时会将margin-right强制设为auto</h3>
 <p>假如这7个属性的和等于400px，<code>p{margin:100px;width:100px}</code>，此时会将margin-right强制设为200px。
-<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:0 100px;width:100px;">margin-right=200px</p></div>
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:0 100px;width:100px;border:1px solid gray;">margin-right=200px</p></div>
 </p>
 <h3>只使用一个auto</h3>
 <p>如果设置width、margin-left或margin-right中的某个值为auto，剩下的两个值指定为特定的值，那么auto的属性就会确定所需的长度。<br/>
 例：假设7个属性的和必须等于400像素，则：
 <br/><code>p{margin-left:auto;margin-right:100px;width:100px;}/* ‘auto’ left margin evaluates to 200px */</code>
-<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin-left:auto;margin-right:100px;width:100px;">margin-left=200px</p></div>
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:0;margin-left:auto;margin-right:100px;width:100px;border:1px solid gray;">margin-left=200px</p></div>
 </p>
 <h3>使用两个auto</h3>
+<p>当两个外边距设置为auto，宽度设为指定值时，此时该元素会居中。这也是使块级元素居中的正确方式。<br/>
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:auto;width:200px;border:1px solid gray;">元素居中</p></div>
+<p>如果一个外边距和宽度为auto，另一个外边距设为指定值时，则会将未设定值的外边距置为0，剩余的则给宽度。
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:0;margin-left:auto;margin-right:100px;width:auto;border:1px solid gray;">元素宽度300px</p></div></p>
+<h3>三个都设置为auto</h3>
+<p>当三个值都设为auto时则与默认的情况相同，外边距设为0，宽度尽可能宽。</p>
+<div style="width:400px;border:1px solid;padding:0;margin:0"><p style="margin:auto;width:auto;border:1px solid gray;">元素宽度400px</p></div></p>
+<h3>负外边距</h3>
+<div style="width:400px;border:3px solid gray;">
+	<p style="margin-left:10px;width:auto;margin-right:-50px;border:1px solid red;">我的宽度=400-（-50）-10=440px</p>
+	<p>我是正常段落</p>
+</div>
+<h3>注意：内边距，边框和内容宽度（高度）不能设为负值，只有外边距可以小于0.</h3>
+<h3>注意：水平外边距不会合并，内容宽度，内边距和外边距可以设为百分数，但是边框不能。对于替换元素，如果元素的宽度设为auto，则宽度即为内容的固有宽度。</h3>
 </body>
 </html>

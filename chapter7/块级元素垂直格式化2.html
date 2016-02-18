@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>块级元素垂直格式化</title>
+<style>
+code{background:gray;color:white;}
+ul{margin-bottom:15px;background-color:gray}
+ul.border{margin-bottom:15px;background-color:gray;border:1px dotted;}
+li{margin-top:10px;margin-bottom:20px;background-color:yellow}
+h1{margin-top:28px;background-color:silver}
+p.zero{border:1px solid gray;margin:0;}
+p.neg075{margin:-0.75em 0;border:1px solid yellow}
+p.neg1{margin:-1em 0;border:1px solid gray}
+p.pos075{margin:0.75em 0;border:1px solid yellow}
+p.neg{margin-top:-50px;margin-right:10px;margin-left:10px;margin-bottom:0;border:3px solid gray;}
+</style>
+</head>
+<body>
+	<p>继续研究合并外边距的问题</p>
+	<h3>正常的正外边距的合并</h3>
+	<div style="width:auto;border:1px solid gray;">
+	<code>ul{margin-bottom:15px;background-color:gray}</code><br/>
+	<code>li{margin-top:10px;margin-bottom:20px;background-color:yellow}</code><br/>
+	<code>h1{margin-top:28px;background-color:silver}</code>
+	</div>
+	<ul><li>A List</li></ul>
+	<h1>HI HEADING</h1>
+	<p>上面的例子可以看出最终ul,li 和 h1之间的间距为28px，但是这个并不是简单的讲解外边距合并的问题，注意：如果块级正常流元素的高度设置为auto，而且只有块级子元素，其默认高度将是从块级子元素的上外边框(<code>border-top</code>)到块级子元素下外边框(<code>border-bottom</code>)之间的距离。这里<code>ul</code>的高度和<code>li</code>的高度是一致的。</p>
+	<p>下面这个例子，将会在<code>ul</code>上加上边框，这时候的结果是：
+	<br/><code>ul.border{margin-bottom:15px;background-color:gray;border:1px dotted;}</code>
+	</p>
+	<ul class="border"><li>A List</li></ul>
+	<h1>HI HEADING</h1>
+	<p>可以看出来：<code>ul</code>的高度是从<code>li</code>的上外边距(<code>margin-top</code>)到其下外边距<code>margin-bottom</code>)之间的距离。最终ul和h1之间的间距还是28px，但是ul和li之间的间距没有发生合并。</p>
+	<h3>负外边距</h3>
+	<p>下面来看三种情形下，负外边距的垂直合并</p>
+	<h4>上下外边距都为0的情况</h4>
+	<p class="zero">这个段落的上下外边距为0em</p>
+	<p class="zero">这个段落的上下外边距为0em</p>
+	<h4>两个负外边距的情况，这时候他们的外间距为绝对值较大的距离，例如：-0.75em和-1em,最终他们的间距是-1em</h4>
+	<p class="neg075">这个段落的上下外边距为-0.75em</p>
+	<p class="neg1">这个段落的上下外边距为-1em</p>
+	<h4>一个正外边距和一个负外边距的合并，取正外边距减去负外边距的绝对值即可。下面这两个段落的间距即为0.75-1=-0.25em</h4>
+	<p class="pos075">这个段落的上下外边距为0.75em</p>
+	<p class="neg1">这个段落的上下外边距为-1em</p>
+	
+	<h3>一个难以理解的例子</h3>
+	<div style="width:420px;background-color:silver;padding:10px;margin-top:50px;border:1px solid"><p class="neg">A paragraph</p>A div</div>
+	<div style="width:420px;background-color:silver;padding:10px;margin-top:50px;border:1px solid"><p>A paragraph</p>A div</div>
+	<p>上面的这两个例子演示的是负外边距对于布局的影响。可以看出来第一个例子中由于使用了负外边距，使得自身被"上拉"了，但是上拉的同时，也导致父元素div的高度发生了很大的变化（对比第二个）。</p>
+	
+
+</body>
+</html>
