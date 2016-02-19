@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>行内元素垂直对齐</title>
+<style>
+code{background:gray;color:white;}
+h4{color:red;font-style:italic}
+</style>
+</head>
+<body>
+	<h4>影响行框高度的因素：只有一点，就是由每个元素的行内框的最高点和最低点决定。vertical-align会抬升（或降低）行内框的顶端；行高会直接影响元素的行内框的顶端和底端。（注意：行框的高度右所有内容元素的行内框的顶端的最高点和最低点决定，因此，行框不是行内框，行高也不是行框的高度。）</h4>
+	<h3>垂直对齐</h3>
+	<p style="font-size:12px;line-height:12px">This is text,<em>some of which is emphasized </em>,plus other text<br>that is <strong style="font-size：24px; vertical-align:4px;">strongly emphasized</strong> and that is<br>larger than the surronding text.</p>
+	<p>这里<code>strong</code>部分的样式<code>vertical-align:4px;</code> ，会把元素相对基线提高4px，同时会提升其内容区和行内框，同样它也会提高整个行框的高度(4px)。</p>
+	<p style="font-size:12px;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br> which is <strong style="font-size:24px;vertical-align:4px">strongly</strong> and and <span style="vertical-align:top;">tall</span> which is <br> larger than the surrounding text.</p>
+	<p>当<code>tall</code>的<code>line-height</code>小于<code>font-size</code>值时，可能会导致上下行重叠。</p>
+	<p style="font-size:12px;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br> which is <strong style="font-size:24px;vertical-align:4px">strongly</strong> and and <span style="vertical-align:top;line-height:4px">tall</span> which is <br> larger than the surrounding text.</p>
+	<p>同样，如果line-height大于其font-size时，则上下行不会重叠，但是如果line-height设置的过大，可能会导致行框的底端被降低，因为<code>tall</code>部分使用的是顶端对齐。</p>
+	<p style="font-size:12px;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br> which is <strong style="font-size:24px;vertical-align:4px">strongly</strong> and and <span style="vertical-align:top;line-height:16px">tall</span> which is <br> larger than the surrounding text.</p>
+	<h3>接下来介绍下，vertical-align各个关键字的效果描述：</h3>
+	<ul>
+		<li>top:将元素行内框的顶端与包含该元素的行框的顶端对齐</li>
+		<li>bottom:将元素行内框的底端与包含该元素的行框的底端对齐</li>
+		<li>text-top:将元素行内框的顶端与父元素内容区的顶端对齐</li>
+		<li>text-bottom:将元素行内框的底端与父元素内容区的底端对齐</li>
+		<li>middle:将元素行内框的垂直中点与父元素基线上0.5ex处的一点对齐</li>
+		<li>super:将元素的内容区和行框上移。上移的距离可能会因用户代理的不同而异</li>
+		<li>sub:与super相同，只不过元素会下移而不是上移。</li>
+		<li>percentage:将元素相对于其line-height的百分数上移或下移。</li>
+	</ul>
+</body>
+</html>

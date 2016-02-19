@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>管理line-height</title>
+<style>
+code{background:gray;color:white;}
+</style>
+</head>
+<body>
+	<h3>管理line-height</h3>
+	<p>因为line-height直接影响行框的高度，可能会导致内容区上下重叠。这里提出了两种解决方案：
+	<ol>
+		<li>对font-size有改变的元素结合em单位使用<code>line-height:1em</code>.</li>
+		<li>使用缩放因子<code>line-height:1</code></li>
+	</ol>
+	<h3>增加边框，内边距和外边距</h3>
+	<ul>
+		<li>增加边框
+			<p style="font-size:12px;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br>that is <a style="border:5px solid;">strongly emphasized</a> and <span style="">tall</span> and that is<br>larger than the surronding text.</p>
+			<p>这里由于行内非替换元素的内边距，边框和外边距不会影响包含该元素的行框的高度。因而造成了border与上下行的重叠。</p>
+		</li>
+		<li>增加内边距
+			<p><span style="border:1px solid black;padding:4px;line-height:12px">Hello,this is text testing <br>JJ Radik CP3 paul Harden Kobe<br/>Michael Jordan Dim Dunken Oneal</span></p>
+			<p><span style="border:1px solid black;line-height:12px">Hello,this is text testing <br>JJ Radik CP3 paul Harden Kobe<br/>Michael Jordan Dim Dunken Oneal</span></p>
+			<p>同上</p>
+		</li>
+		<li>增加外边距：它不会应用到行内非替换元素的顶端和底端，也不影响行框的高度。</li>
+	</ul>
+	<p>上述例子中第二部分我们加入了边框，可以看出边框包住了内边距和内容区，但是同样并没有影响其行高。行框的高度也没有发生变化。</p>
+	<h3>行内元素的边界由font-size而不是line-height控制。</h3>
+	<p style="font-size:12px;line-height:12px">This is text,<em>some of which is emphasized</em>,plus other text<br>that is <strong style="font-size:24px;">strongly emphasized</strong> and <span style="line-height:24px;border:1px solid">tall</span> and that is<br>larger than the surronding text.</p>
+	<p>尽管内边距和外边距不影响行高，但是确实能影响一个元素内容的布局，可能将文本推离其左右两端。而其如果外边距为负值，可能会把文本拉近行内元素，甚至导致重叠。</p>
+	<p><span style="border:1px solid black;padding:4px;">Hello,this is text testing <br>JJ Radik<span style="margin:-10px;background:silver;"> CP3 paul Harden Kobe<br/>
+	Michael Jordan</span> Dim Dunken Oneal</span></p>
+	<p>内边距不会影响行高，但是可能会影响内容的展示。例如：
+	<p><span style="border:1px solid black;">Hello,this is text testing <br>JJ Radik<span style="margin:-10px;background:silver;padding:10px;"> CP3 paul Harden Kobe<br/>
+	Michael Jordan</span> Dim Dunken Oneal</span></p>
+	</p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>替换元素与基线</title>
+<style>
+code{background:gray;color:white;}
+td{font-size:40px;border:1px dotted}
+td.same{font-size:30px;line-height:30px;border:1px dotted}
+img.block{display:block;}
+</style>
+</head>
+<body>
+	<h3>替换元素与基线</h3>
+	<p>行内替换元素的基线与替换元素的下外边距与基线对齐。
+	<br/><img src="images/replaced.png"/>
+	</p>
+	<p>但是正是由于替换元素的下外边距与基线对齐，容易造成一些我们不想看到的结果，例如：
+	<table>
+		<tr><td>
+			<img src="images/run.png" width="30" height="30">
+		</td></tr>
+	</table>
+	这里我们可以看到由于图像是与基线对齐的，导致图形在单元格内产生了上下的间隙。事实上，只要一个替换元素是块级元素或表单元格元素的唯一后代，都会有这种行为。
+	<p>对于这个问题，我们有两种解决办法：
+	<ol>
+		<li><h5>将包含替换元素的表单元格的font-size和line-height都设置成和图像的height一样的大小</h5>
+			<table>
+				<tr><td class="same">
+					<img src="images/run.png" width="30" height="30">
+				</td></tr>
+			</table>
+		</li>
+		<li><h5>第二种方法是使图像成为块级元素，这样就不会生产行内框</h5>
+			<table>
+				<tr><td>
+					<img src="images/run.png" width="30" height="30" class="block">
+				</td></tr>
+			</table>
+		</li>
+	</ol>
+</body>
+</html>

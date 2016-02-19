@@ -5,3 +5,9 @@
 4.块级元素垂直格式化.html
 5.块级元素垂直格式化2.html
 6.行内元素.html
+7.行内格式化.html
+8.行内元素垂直对齐.html
+9.管理line-height.html
+10.行内替换元素.html
+11.替换元素与基线.html
+12.改变元素显示.html

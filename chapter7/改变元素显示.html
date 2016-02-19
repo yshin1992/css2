@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>改变元素显示</title>
+<style>
+code{background:gray;color:white;}
+div#nav a{display:block;}
+ul#nav2 li{display:inline;border-right:1px solid;padding:0 5px}
+div{margin:1em 0;border:1px solid;}
+div > p{border:1px dotted;}
+div#one p{display:block;width:6em;text-align:center;}
+div#two p{display:inline;width:6em;text-align:center;}
+div#three p{display:inline-block;width:6em;text-align:center;}
+div#four p{display:inline-block;width:auto;text-align:center;}
+</style>
+</head>
+<body>
+	<h3>改变元素显示</h3>
+	<p>display:none,inline,block,inline-block,list-item,run-in,table,inline-table,table-row-group,table-header-group,table-footer-group,table-row,table-column-group,table-column,table-cell,table-caption,inherit.它适用于所有元素，并且没有继承性。</p>
+	<h3>改变角色</h3>
+	<p>将显示角色由inline改为block:<code>div#nav a{display:block;}</code><br/>
+	<div id="nav">
+		<a href="index.html">Welcome</a>
+		<a href="service.html">Services</a>
+		<a href="support.html">Support</a>
+	</div>
+	<p>将显示角色由block改为inline:<code>ul#nav2 li{display:inline;border-right:1px solid;padding:0 5px}</code>
+	<ul id="nav2">
+		<li>Bob C</li><li>Marcio G</li><li>Eric M</li>
+		<li>Kat L</li><li>Arun R</li><li>Susie W</li>
+	</li>
+	<h4>注意:你能改变元素的显示角色，但是不能改变其本质。它如果是行内元素不会因为display:block就成为了块级元素。</h4>
+	</p>
+	<h3>行内块元素</h3>
+	<p>行内块元素是块级元素和行内元素的混合产物，它的表现和行内替换元素一样。实际上，行内块元素会作为替换元素放置在行中，也就是说，行内块元素的底端默认的位于文本行的基线上，而且内部没有分隔符。行内块元素也有width和height属性，如果比周围元素高，这些属性会使行高增加。<br/>
+	接下来看看inline,block,inline-block三者的差别
+	<div id="one">这个段落的将会展示显示角色为block的表现。
+	<p>我的display值为block</p>现在的结果是？</div>
+	<div id="two">这个段落的将会展示显示角色为block的表现。
+	<p>我的display值为inline</p>现在的结果是？</div>
+	<div id="three">这个段落的将会展示显示角色为block的表现。
+	<p>我的display值为inline-block</p>现在的结果是？</div>
+	<div id="four">这个段落的将会展示显示角色为block的表现。
+	<p>我的display值为inline-block我的display值为inline-block我的display值为inline-block我的display值为inline-block我的display值为inline-block</p>现在的结果是？</div>
+	<p>注意：第二个div中，行内段落格式化为正常的行内内容，这就说明width和text-align不能应用于行内元素。<br/>
+	如果行内块元素的width未定义或为auto，则元素框会收缩以适应内容，但是行内框可能会跨多个文本行，但是行内块元素不能。
+	</p>
+	<h3>run-in元素</h3>
+	<p>可以使某些块级元素成为下一个元素的行内部分,例如:	</p>
+	<p style="font-size:24px;color:red;display:run-in">Heading Line</p>
+	<p> Ha Ha Now is time</p>
+</body>
+</html>

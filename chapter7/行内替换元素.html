@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>行内替换元素</title>
+<style>
+code{background:gray;color:white;}
+</style>
+</head>
+<body>
+	<h3>行内替换元素</h3>
+	<p>一般认为行内替换元素有固定的高度和宽度。替换元素不会改变行中任何元素的line-height的值，包括替换元素本身。它会让行框的高度恰好包含替换元素。例：
+	<p>这个段落中包含了一个图像文件，<br/>这个图像文件<img src="images/jquery_logo.png"/>，不会影响line-height的值，但它会影响行框的高度</br>来看看展示的效果。</p>
+	<h4>因为对于替换元素，元素行内框的高度则恰好等于内容区的高度，因为行间距不应用到替换元素。</h4>
+	<p>line-height对替换元素的行内框没有任何影响，但是替换元素还是需要这个值。因为，这个值在替换元素垂直对齐时，需要这个值来正确的定位元素。（vertical-align的百分数值要相对于这个元素的line-height来计算）,例如:
+	</p>
+	<p style="font-size:15px;line-height:18px;">这个段落中的图像<img src="images/jquery_logo.png" style="vertical-align:50%" />会被抬升line-height*50%=18*0.5=9px</p>
+	<p>line-height的值继承值使图像上升9个像素。如果没有line-height值，它就无法完成百分数值指定的垂直对齐。对于垂直对齐来说，与图像本身的高度无关</p>
+	</p>
+	<h3>增加框属性</h3>
+	<p>对于替换元素而言，内边距和边框确实会影响行框的高度，因为他们要作为行内替换元素的行内框的一部分。例如:
+	<p>这个段落中有两个图像，第一个图像<img src="images/jquery_logo.png" style="margin:0px,padding:0px;border:1px dotted" />只有1px的边框。
+	<br/>第二个图像<img src="images/jquery_logo.png" style="margin:5px;padding:3px;border:1px dotted;" />有边框的同时，还有<br/>5px的外边距和3px的内边距。</p>
+	<p>外边距也包含在行框中，正外边距会使替换元素的行内框更高。设置负外边距就会减少替换元素行内框的大小。例：<br/>
+	<p>这个段落中的图像<br/>
+	的外边距<img src="images/jquery_logo.png" style="margin:-10px;vertical-align:top" />
+	被设为-10px，<br/>这会使得其行内框的高度小于其内容的高度，就有可能挤入其他行内。</p>
+	</p>
+</body>
+</html>
