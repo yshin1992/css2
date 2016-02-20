@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>外边距</title>
+<style>
+code{background:gray;color:white;}
+</style>
+</head>
+<body>
+	<h3>外边距</h3>
+	<p>大多数正常流元素间出现的间隔都是因为存在元素外边距。</p>
+	<h4>margin:[&lt;length&gt;,&lt;percentage&gt;auto]{1,4}。它可以应用于所有的元素，但同样没有继承性。</h4>
+	<h3>长度值和外边距</h3>
+	<p>设置元素的外边距时，可以使用任何长度值。margin设置4个值的时候的顺序是：top right bottom left</p>
+	<h3>百分数和外边距</h3>
+	<p>外边距设置的百分数值，是相对于父元素的width计算的。
+	<div style="width:400px;border:1px dotted;"><p style="margin:5%;border:1px solid;">这个段落的外边距是400*0.05=20px;</p></div>
+	<p>如果没有为元素设置width，元素框的总宽度取决于父元素的width，这就有可能得到"流式"页面，即元素的外边距会扩大或缩小以适应父元素的实际大小。</p>
+	<div style="border:1px dotted;"><p style="margin:1%;border:1px solid;">这个段落的外边距会随着窗体的变化而变化。</p></div>
+	<h3>值复制</h3>
+	<p>有时，为外边距输入的值会有些重复:<code>p{margin:0.25em 1em 0.25em 1em;}</code>，这时，我们可以使用简化的方式：<code>p{margin:0.25em 1em;}</code>.值复制的规则如下图所示:<br/>
+	<img src="images/copy.png"/>
+	</p>
+	<h4>单边外边距属性:margin-left,margin-right,margin-top,margin-bottom </h4>
+</body>
+</html>
