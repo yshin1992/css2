@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>浮动</title>
+<style>
+code{background:gray;color:white;}
+.left{float:left;}
+.right{float:right;}
+.margin{margin:35px 15px}
+warn{color:red;}
+.border{border:1px solid;}
+</style>
+</head>
+<body>
+	<h3>浮动</h3>
+	<p>float:left,right,none,inherit，应用于所有元素，没有继承性。<p>
+	<p>接下来，看一个图像浮动的实例<br/>看一下<img src="images/jquery_logo.png" class="left"/>现在这个图像的位置。<br/>这个图像是不是浮动到了左侧。<br/>到底是不是呢？</p>
+	<p>首先，会以某种方式将浮动元素从文档的正常流中删除，不过它还是会影响布局。	
+	</p>
+	<p style="margin:0px;"><img src="images/jquery_logo.png" class="left margin"/> 来看看这两个图像之间的间距。<br/>这两行之间的间距是多少?</p>
+	<p>上面的例子可以看出,<warn>浮动元素周围的外边距不会合并</warn>,而如果确实要浮动一个非替换元素，则需为该元素声明一个width。
+	<em class="left border" style="width:100px">我是要浮动到左边的元素</em>
+	</p>
+	
+	<h4 style="clear:both">不浮动</h4>
+	<p>float:none用于防止元素浮动</p>
+	<h3>浮动的详细内幕</h3>
+	<p>
+		<ol>
+			<li>首先，建立包含块。浮动元素的包含块是其最近的块级祖先元素。</li>
+			<li>接下来，浮动元素会生成一个块级框。无论这个元素本身是什么</li>
+			<li>浮动元素有一系列规则控制着浮动元素的摆放。
+				<ol>
+					<li>浮动元素的左（或右）外边界不能超出其包含块的左（或右）内边界<br/>
+					<img src="images/rule1.jpg"/>
+					</li>
+					<li>浮动元素的左（或右）外边界必须是文档中之前出现的左浮动（或右浮动）元素的右（左）外边界，除非后出现的浮动元素的顶端在先出现浮动元素的底端下面。<br/>
+					<img src="images/rule2.jpg"/>
+					</li>
+					<li>左浮动元素的右外边界不会出现在其右边右浮动元素的左外边界的右边。这条规则是为了防止浮动元素重叠。
+					<br/>
+					<img src="images/rule3.jpg"/>
+					</li>
+					<li>一个浮动元素的顶端不能比其父元素的内顶端更高。如果一个浮动元素在两个合并外边距之间，放置这个浮动元素时就好像在两个元素之间有一个块级父元素。
+					<br/><img src="images/rule4.jpg"/>
+					</li>
+					<li>浮动元素的顶端不能比之前的所有浮动元素的顶端或块级元素的顶端更高。例如，如下示例，第3个浮动元素最高只能与第二个浮动元素浮动在相同的高度，不能比第二个浮动元素更高。<br/>
+					<img src="images/rule5.jpg"/>
+					</li>
+					<li>如果源文档中一个浮动元素之前出现在另一个元素，浮动元素的顶端不能比包含该元素所生成框的任何行框的顶端更高。假设一个段落中间有一个浮动图像，这个图像顶端最高只能放在该图像所在行框的顶端。
+					<br/>
+					<img src="images/rule6.jpg"/>
+					</li>
+					<li>左（或右）浮动元素的左边（右边）有另一个浮动元素，前者的右外边界不能在其包含块的右（左）边界的右边（左边）。也就是说浮动元素不能超出其包含元素的边界。
+					<br/>如果浮动元素出现在另一个浮动元素的旁边，可能会导致超出包含块的话，实际上这个浮动元素会向下浮动到之前的浮动元素下面的某一点。<br/>
+					<img src="images/rule7.jpg"/>
+					</li>
+					<li>浮动元素必须尽可能高的放置。</li>
+					<li>左浮动元素必须向左尽可能远，右浮动元素必须尽可能向右尽可能远，位置越高的浮动的越远。<br/>
+					<img src="images/rule8.jpg"/>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</p>
+	
+</body>
+</html>
