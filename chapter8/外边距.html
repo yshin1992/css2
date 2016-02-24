@@ -23,5 +23,17 @@ code{background:gray;color:white;}
 	<img src="images/copy.png"/>
 	</p>
 	<h4>单边外边距属性:margin-left,margin-right,margin-top,margin-bottom </h4>
+	<h4>负外边距和合并外边距(参见第7章内容)</h4>
+	<h4>外边距和行内边距</h4>
+	<p>行内元素设置外边距对于行高没有任何影响，但是他可以影响行内元素两端的效果。</p>
+	<p>替换元素设置的外边距确实会影响行高。可能会使行高增加或减少，这取决于上下边距的值。</p>
+	<h4>应用负外边距实现蒙德里安风格</h4>
+	<div style="background:silver;border:1px solid;margin:1em">
+		<p>第一个段落</p>
+		<p style="background:white;margin:1em -1px 1em 2em;border:1px solid;border-right:none;text-align:center">第二个段落</p>
+		<p>第三个段落</p>
+		<p style="background:white;margin:1em 2em 1em -1px;border:1px solid;border-left:none;text-align:center">第四个段落</p>
+	</div>
+	
 </body>
 </html>

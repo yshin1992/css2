@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>边框</title>
+<style>
+code{background:gray;color:white;}
+</style>
+</head>
+<body>
+	<h3>边框</h3>
+	<p>元素外边距内就是元素的边框(border)。元素的边框包括：宽度（medium，通常是2px）、样式和颜色。
+	<br/>元素的默认宽度是medium(2px)，但是边框是看不出来的，因为边框的默认样式是none。如果没有为边框指定颜色，则边框使用的文本的前景色。</p>
+	</p>
+	<h3>边框和背景</h3>
+	<p>CSS2.1规定：元素的背景是内容、内边距和边框区的背景。</p>
+	<p style="border:5px dotted;background-color:silver">注意观察背景是否覆盖到了边框</p>
+	<h3>边框样式</h3>
+	<p>border-style:[none,hidden,dotted,dashed,solid,double,groove,ridge,inset,outset]{1,4},它可以应用于所有元素，没有继承性。</p>
+	<p>它对应的单边样式：border-top-style,border-right-style,border-bottom-style,border-left-style</p>
+	<h4>边框宽度</h4>
+	<p>border-width:[thin,medium,thick,&lt;length&gt;]{1,4},它可以应用于所有元素，没有继承性。对应的单边属性：border-top-width,border-right-width,border-bottom-width,border-left-width。注意：如果边框的样式为none或者hidden,则为0。而且边框的值不能为百分数。
+	</p>
+	<h4>边框颜色</h4>
+	<p>border-color:[color,transparent]{1,4},应用到所有元素，没有继承性。对应的单个属性：border-top-color,border-right-color,border-left-color,border-bottom-color.
+	</p>
+	<h4>简写边框属性</h4>
+	<p>四个简写属性：border-top,border-right,border-bottom,border-left;同时注意，与外边距不同，这四个单边属性，是不能进行值复制的</p>
+	<h4>全局边框</h4>
+	<p>border:border-width,border-color,border-style</p>
+	<h3>边框和行内元素</h3>
+	<p>无论为行内元素的边框指定怎样的宽度，元素的行高都不会改变。</p>
+	
+</body>
+</html>
