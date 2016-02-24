@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>颜色</title>
+<style>
+code{background:gray;color:white;}
+</style>
+</head>
+<body>
+	<h3>颜色</h3>
+	<h4>前景色</h4>
+	<p>要设置一个元素的前景色，最容易的办法是利用属性color。<br/>
+	color:&lt;color&gt;,它应用于所有元素，并且有继承性。</p>
+	<p>前景色会影响边框，边框的默认颜色是前景色，如果要指定边框的颜色，可以用<code>border-color</code></p>
+	<h3>背景</h3>
+	<h4>背景色</h4>
+	<p>background-color:&lt;color&gt;|transparent;它应用于所有元素，无继承性</p>
+	<h4>背景图像</h4>
+	<p>background-image:&lt;uri&gt;|none;它应用于所有元素，无继承性</p>
+	<h4>背景重复</h4>
+	<p>background-repeat:repeat|repeat-x|repeat-y|no-repeat,它应用于所有元素，无继承性。默认值是repeat</p>
+	<h4>背景定位</h4>
+	<p>background-position:[&lt;percentage&gt;,&lt;length&gt;,left,center,right][&lt;percentage&gt;,&lt;length&gt;,top,center,bottom]||[left,center,right][top,center,bottom],应用于块级元素和替换元素，无继承性。<br/>
+	等价关键字：
+	<table border=1>
+		<tr>
+			<td>center</td><td>center center</td>
+		</tr>
+		<tr>
+			<td>top</td><td>top center<br/>center top</td>
+		</tr>
+		<tr>
+			<td>bottom</td><td>bottom center <br/>center bottom</td>
+		</tr>
+		<tr>
+			<td>right</td><td>right center <br/>center right</td>
+		</tr>
+		<tr>
+			<td>left</td><td>left center <br/>center left</td>
+		</tr>
+	</table>
+	</p>
+	<h4>关联</h4>
+	<p>防止背景滚动<code>background-attachment</code>:scroll,fixed.它应用于所有元素，同样没有继承性</p>
+	<h4>汇总</h4>
+	<p>background:[background-color][background-image][background-repeat][background-attachment][background-position]
+</body>
+</html>
