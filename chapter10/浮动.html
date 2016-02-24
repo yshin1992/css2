@@ -64,6 +64,22 @@ warn{color:red;}
 			</li>
 		</ol>
 	</p>
-	
+	<h3>实用行为</h3>
+	<p>浮动元素会延伸，从而包含其所有后代浮动元素。所以，通过将父元素设置为浮动元素，就可以把浮动元素包含在其父元素中。
+	<div style="float:left;"><img src="images/jquery_logo.png" style="float:left;"/>The div will stretch around the floated image because the div has been floated.</div>
+	</p>	
+	<h3 style="clear:both">负外边距的浮动</h3>
+	<p style="background:silver;padding:15px;margin:10px">这里的图片设置为向左浮动，同时，<img src="images/jquery_logo.png" style="float:left;margin:-25px;"/>这个图片的外边距为负值。</p>
+	<p>CSS2规定：在使用负外边距时，如果浮动元素超出其父元素，文档不必重新显示已显示内容来适应文档中后来出现的内容。</p>
+	<h3>浮动元素、内容和重叠</h3>
+	<p>CSS2.1对于行内框与块框之间重叠时的规则:<br/>
+	<ul>
+	<li>行内框与一个浮动元素重叠时，其边框、背景和内容都在该浮动元素之上显示。</li>
+	<li>块框与一个浮动元素重叠时，其边框和背景在该浮动元素之下显示，但是内容在浮动元素之上显示。</li>
+	</ul>
+	</p>
+	<p><span style="background-color:silver;border:1px solid">行内框与一个浮动元素重叠时，其边框、背景和内容都在该浮动元素之上显示。<img src="images/rule7.jpg" style="float:left;margin:-35px;"/>
+	<h3 style="background-color:yellow">块框与一个浮动元素重叠时，其边框和背景在该浮动元素之下显示，但是内容在浮动元素之上显示。</h3>
+	</p>
 </body>
 </html>

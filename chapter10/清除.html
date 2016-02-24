@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>清除</title>
+<style>
+code{background:gray;color:white;}
+.left{float:left;height:45px;width:auto;}
+</style>
+</head>
+<body>
+	<h3>清除浮动</h3>
+	<p>clear:left,right,both,none,它应用于所有的块级元素，没有继承性</p>
+	<p>来看一下，3种情况下float设置值的影响</p>
+	<p><img src="images/jquery_logo.png" class="left"/>clear设置为none时的效果
+	<h3>Heading LINE 3</h3>
+	</p>
+	<p><img src="images/jquery_logo.png" class="left"/>clear设置为left,且margin的值小于能将h3推到图片下端时的效果
+	<h3 style="margin:3px;clear:left;">Heading LINE 3</h3>
+	</p>
+	<p><img src="images/jquery_logo.png" class="left"/>clear设置为none,但margin大于能将h3推到图片下端的距离时的效果
+	<h3 style="margin:35px 0;">Heading LINE 3</h3>
+	</p>
+	<p>从上面的例子可以看出，如果想为一个清除元素（设置clear属性的元素）的顶端与一个浮动底端之间保持一定的距离，可以为浮动元素本身设置一个下外边界。</p>	
+</body>
+</html>
