@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>表格式化</title>
+<style>
+code{background:gray;color:white;}
+scores{display: table;}
+headers{display: table-header-group;}
+game{display: table-row-group;}
+team{display: table-row;}
+label,name,score{display: table-cell;}
+</style>
+</head>
+<body>
+	<h3>表格式化</h3>
+	<h4>表显示值</h4>
+	<ul>
+		<li>display:table 这个值定义了一个块级表。对应HTML元素的table</li>
+		<li>display:inline-table 这个值指定一个元素定义一个行内级表。与之最接近的非表值是inline-block,最接近的HTML元素是table</li>
+		<li>display:table-row 指定一个元素是一个单元格的行，对应HTML中的tr</li>
+		<li>display:table-row-group 指定一个元素是一个或多个行的组，对应HTML中的tbody</li>
+		<li>display:table-header-group 对应HTML中的thead</li>
+		<li>display:table-footer-group 对应HTML中的tfoot</li>
+		<li>display:table-column 对应HTML中的col</li>
+		<li>display:table-row 对应HTML中的colgroup</li>
+		<li>display:table-cell 指定一个元素表示表中的单个单元格，对应HTML中的th和td</li>
+		<li>display:table-caption 定义一个表的总标题，对应HTML中的tr</li>
+	</ul>
+	<scores>
+		<headers>
+			<label>Team</label><label>Score</label>
+		</headers>
+		<game sport="MLB" league="NL">
+			<team>
+				<name>Reds</name><score>8</score>
+			</team>
+			<team>
+				<name>Cubs</name><score>5</score>
+			</team>
+		</game>
+	</scores>
+		
+</body>
+</html>
