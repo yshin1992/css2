@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>绝对定位</title>
+<style>
+code{background:gray;color:white;}
+#masthead{position: relative;}
+#masthead h1{position: absolute;top:1em;left: 1em;right: 25%;bottom: 10px;margin: 0;padding: 0;background: silver;height: 1em;width: 50%}
+</style>
+</head>
+<body>
+	<div id="masthead"><h1>transcendent scratchings</h1></div>
+	<h3>绝对定位</h3>
+	<p>元素绝对定位时，会从文档流中删除。然后相对于其包含块定位，其边界根据偏移属性(top、left等)
+	放置。定位元素不会流入其他元素的内容，反之亦然。这说明，绝对定位可能覆盖其他元素，或者
+	被其他元素覆盖。
+	</p>
+	<div>绝对定位元素的包含块是最近的position值不为static的祖先元素。创作人员通常
+	会选择一个元素作为绝对定位元素的包含块，将其position指定为relative而且没有偏移。
+	<!-- <div style="position: absolute;top:0;left:100%;right:-50%;bottom:0">元素绝对定位时，会从文档流中删除。然后相对于其包含块定位，其边界根据偏移属性(top、left等)
+	放置。定位元素不会流入其他元素的内容，反之亦然。这说明，绝对定位可能覆盖其他元素，或者
+	被其他元素覆盖。</div> -->
+	</div>
+	<p>如果文档可滚动，定位元素会随着它滚动。只要定位元素不是固定定位元素的后代，情况都是如此。
+	原因是元素最终会相对于正常流中的某一部分定位。</p>
+	<h3>绝对定位元素的放置和大小</h3>
+	<h4>自动边偏移</h4>
+	<p>如果将除bottom外某个任意偏移属性设置为auto，会有一种特殊行为。下面我们将top设置为auto</p>
+	<p style="padding-left:2em">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:auto;left:0">[4]</span>的这个标记</br>
+	来看看中间的这个标记
+	</p>
+	<p>将left设置为auto</p>
+	<p style="padding-left:2em">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:500px;left:auto">[4]</span>的这个标记</br>
+	来看看中间的这个标记。
+	</p>
+	<p>将top和left设置为auto</p>
+	<p style="padding-left:2em">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:auto;left:auto">[4]</span>的这个标记</br>
+	来看看中间的这个标记。
+	</p>
+	<p>对于top设置为auto,定位元素的顶端要相对于其未定位前本来的顶端对齐。如果left或right设为auto，
+	定位元素的左或右边界与元素未定位时该边界的原本的位置对齐。</p>
+	<p>我们可以看到如果left和auto都设置为auto，定位元素就会位于它本来的位置。这会导致定位元素与正常流元素重叠。</p>
+	<h3>非替换元素的放置和大小</h3>
+	<p>首先，如果left,width和right都设置为auto：左边界置于其静态位置，元素的width设置为"收放的正好合适",该元素的内容区
+	宽度恰好只能包含其内容。</p>
+	<p>将top和left设置为auto</p>
+	<p style="position: relative;">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:0;left:0;right:auto;width:auto;background: silver">[4]</span>的这个标记</br>
+	来看看中间的这个标记。
+	</p>
+	<p>上述例子的top和left设置为0，right，width为auto。结果是元素的顶端根据其包含块的顶端放置，且元素的宽度刚好足够包含该内容。
+	从元素右边界到包含块右边界之间余下的距离是right的计算值。</p>
+	<p>假设左右外边距设置为auto，而left，width和right不是auto。</p>
+	<p style="position: relative;width:10em;border:1px dotted;">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:0;left:1em;right:1em;width:3em;background: silver;margin:0 auto;">[4]</span>的这个标记</br>
+	来看看中间的这个标记。
+	</p>
+	<p>这里左右外边距使得绝对定位元素居中显示。</p>
+	<p>假设外边距不为auto，此时会忽略right的值，将其重置。</p>
+	<p style="position: relative;width:10em;border:1px dotted;">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:0;left:1em;right:1em;width:3em;background: silver;margin:0 0.5em;">[4]</span>的这个标记</br>
+	来看看中间的这个标记。
+	</p>
+	<p>当然如果某个外边距为auto，此时会重置该外边距。</p>
+	<p style="position: relative;width:10em;border:1px dotted;">来看看中间的这个标记</br>
+	来看看中间<span style="position: absolute;top:0;left:1em;right:1em;width:3em;background: silver;margin:0 0.5em 0 auto;">[4]</span>的这个标记</br>
+	来看看中间的这个标记。
+	</p>
+	<h4>现在总结一下非替换元素的放置和大小:left+margin-left+border-left-width+padding-left+width+padding-right-width+border-right-width+
+	margin-right-width=包含块的width</h4>
+	<p>如果只有一个属性设置为auto，就会修改这个属性来满足本节前面给出的等式。</p>
+	<p>对于垂直轴，规则非常类似，只要将其旋转90度就会得到几乎相同的行为。如果一个绝对定位元素在垂直方向上过度受限，会忽略bottom。</p>
+	
+	<h3>替换元素的放置和大小</h3>
+	<p>确定替换元素的位置和大小时，所涉及的行为用以下规则:
+	<br/>1.如果width为auto，width的实际使用值由元素内容的固有宽度决定。
+	<br/>2.如果left为auto，则把auto替换为静态位置。
+	<br/>3.如果left或right认为auto（也就是说，未在上一步中被替换），则将margin-left或margin-right
+	的auto值替换为0.
+	<br/>4.如果此时margin-right和margin-right的值都还定义为auto，则把它们设置为相等的值，从而将元素在其包含块中居中。
+	<br/>5.在此之后，如果只剩下一个auto值，则将其修改为等于等式的余下部分。
+	<br/>与非替换元素一样，如果值过度受限，用户代理就会忽略right的值。
+	</p>
+	<p>
+	<br/>类似地，沿垂直轴的布局会受以下一组规则控制：
+	<br/>1.如果height为auto，height的计算值由元素内容的固有高度决定。
+	<br/>2.如果top为auto，则将其替换为替换元素的静态位置。
+	<br/>3.如果bottom为auto，将margin-top或margin-bottom的所有auto值替换为0
+	<br/>4.如果此时margin-top和margin-bottom都还定义为auto，将其设置为相等的值，从而使元素在其包含块中居中。
+	<br/>5.在此之后，如果只剩下一个auto值，则将其修改为等于等式的余下部分。
+	<br/>与非替换元素一样，如果值过度受限，用户代理就会忽略bottom的值。
+	</p>
+		
+	<h3>Z轴上的放置</h3>
+	<p>z-index:&lt;integer&gt;,auto它应用于定位元素，并且无继承性。利用z-index，可以改变元素相互覆盖的顺序。
+	z-index的值越大，越在其他图像的上面。
+	<br/>根据CSS2.1的规定，要求元素绝不会叠放在其叠放上下文的背景之下。即使body有背景，也会把段落放置body之上，
+	但是并不是所有的浏览器都遵从这个规范，因此，不能设置z-index为负值，期望元素一定会显示在body之上。
+	</p>
+	<h3>固定定位</h3>
+	<p>固定定位与绝对定位很相似，只不过固定元素的包含块是视窗。这会得到一些非常有意思的效果，比如将一个标题置顶，
+	随着文档的滚动，它依然会保持在视窗顶部。</p>
+</body>
+</html>

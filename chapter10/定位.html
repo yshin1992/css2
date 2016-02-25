@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>定位</title>
+<style>
+code{background:gray;color:white;}
+</style>
+</head>
+<body>
+	<h3>定位</h3>
+	<p>定位可以准确的定义元素框相对于其正常位置应该出现在哪里，或者相对于父元素、另一个元素甚至浏览器窗口本身
+	的位置。</p>
+	<p>定位的类型position:static | relative | absolute | fixed | inherit,初始值static，应用于所有元素，
+	无继承性。
+	</p>
+	<ul>
+		<li>static:元素框正常生成。</li>
+		<li>relative:元素框偏移某个距离，元素仍保持其未定位前的形状，它原本所占的空间仍保留。</li>
+		<li>absolute:元素框从文档流中完全删除，并相对于其包含块定位。元素原先在正常文档流中所占的位置
+		会关闭，就好像原来的元素不存在一样。元素定位后生成一个块级框，而不论元素在正常流中生成何种类型的
+		框。</li>
+		<li>fixed:表现与absolute类似，不过它是相对于视窗本身。</li>
+	</ul>
+	<h3>包含块</h3>
+	<p>CSS2.1对包含块定义了以下行为:
+	<ul>
+		<li>"根元素"的包含块由用户代理建立。在HTML中根元素就是"html"</li>
+		<li>对于一个非根元素，如果其position值是relative或static，包含块则由最近的块级框、表单元格或行内祖先框的内容边界构成。
+		</li>
+		<li>对于一个非根元素，如果其position值是absolute，包含块设置为最近的position值不是static的祖先元素。这个过程如下：
+		<ol>
+			<li>如果这个祖先是块级元素，包含块则设置为该元素的内边距边界，换句话说，就是由边框界定的区域。</li>
+			<li>如果这个祖先是行内元素，包含块则设置为该祖先元素的内容边界。</li>
+			<li>如果没有祖先，元素的包含块定义为根元素。</li>
+		</ol>
+		</li>
+		<li>元素可以定位到其包含块的外面。</li>
+	</ul>
+	<h3>偏移属性</h3>
+	<p>4个属性称为偏移属性top,right,bottom,left:&lt;length&gt;&lt;percentage&gt;auto,它们应用于
+	定位元素，也就是position值不是static的元素。对于百分数值，top和bottom相对于包含块的高度来计算，对于right和left
+	相对于包含块的宽度来计算。
+	</p>
+	<p>这些属性描述了距离包含块最近的偏移。例如<code>top:50%;bottom:0;left:50%;right:0</code></p>
+	<div style="width:200px;height:200px;background-color:silver;position:relative;">
+		包含块
+		<div style="background-color:yellow;position:absolute;top:50%;left:50%;right:0;bottom:0">定位元素</div>
+	</div>
+	<h3>高度和宽度</h3>
+	<p>设置宽度和高度:<br/>
+	如果想要为定位元素设置宽度和高度，可以用<code>width</code>,<code>height</code>来指定。但对于定位元素来说，却不一定是必要的，
+	如果利用top、right、left和bottom来描述4个边的放置位置，那么元素的高度和宽度将由这些偏移隐含确定。
+	<div style="width:200px;height:100px;background-color:silver;position:relative;">
+		包含块
+		<div style="background-color:yellow;position:absolute;top:0;left:50%;right:0;bottom:0">定位元素</div>
+	</div>
+	</p>
+	<p>但是如果定位元素有内边距、边框或外边距，此时为定位元素显示指定了宽、高度<br/>
+	<div style="width:200px;height:100px;background-color:silver;position:relative;">
+		包含块
+		<div style="background-color:yellow;position:absolute;top:0;left:50%;width:50%;height:100%;margin:2em">定位元素</div>
+	</div>
+	</p>
+	<h3>限制宽度和高度</h3>
+	<p>min-width,min-height,max-height,max-width:&lt;length&gt;,&lt;percentage&gt;，它应用于除了非替换行内元素和表元素以外的所有元素
+	，无继承性，它的百分数值是相对于包含块的宽度或高度来计算的。
+	</p>
+	<h3>内容裁剪和溢出</h3>
+	<p>如果一个元素的内容对于元素大小来说过大，就有可能溢出元素本身。<br/>
+	overflow:visible,hidden,scroll,auto;应用于块级元素和替换元素，无继承性。
+	<br/>overflow的默认值是visible表明，元素的内容在元素框之外也可见。这会导致
+	内容超出自己的元素框，但不会改变框的形状。</p>
+	<div style="width:100px;height:30px;border:1px solid;">这个内容区的内容超出了
+	元素内容框</div>
+	<p style="margin-top:50px">overflow设置为scroll的情形:
+	<div style="width:100px;height:30px;border:1px solid;overflow:scroll">这个内容区的内容超出了
+	元素内容框</div>
+	</p>
+	<p>overflow设置为hidden的情形:
+	<div style="width:100px;height:30px;border:1px solid;overflow:hidden">这个内容区的内容超出了
+	元素内容框</div>
+	</p>
+	<h3>內容裁剪</h3>
+	<p>如果一个绝对定位元素的内容溢出其内容框，而且overflow设置为要求裁剪该内容，通过使用属性clip可以改变
+	剪裁区域的形状。<br/>
+	默认值auto表示元素的内容不应裁剪，还可以相对于元素内容区定义一个裁剪形状，这不会改变内容区的形状，而只是改变将
+	显示内容的区域形状。<br/>
+	clip:rect(top,right,bottom,left),auto,应用于<code>绝对定位元素</code>，无继承性。rect(....)的值不是偏移，而是距离元素左上角
+	的距离，因此如果一个裁剪矩形涵盖元素左上角20x20px的一个正方形，可以定位为:
+	<br/><code>rect(0,20px,20px,0)</code>,rect(...)的值只允许<code>长度值</code>和<code>auto</code>。
+	<div style="width:100px;height:100px;border:1px solid;overflow:hidden;position:relative">
+		<div style="position: absolute;top:0;left:0;clip:rect(0,220px,40px,0)">这个内容区的内容超出了
+	元素内容框</div>
+	</div>
+	</p>
+	</p>
+	<h3>元素可见性</h3>
+	<p>visibility:visible|hidden|collapse，它应用于所有元素，并且有继承性。</p>
+	<p style="border:1px solid;visibility: hidden;">这段文档的内容是不可见的</p>
+	<p>这段内容是可见的，上面有一个段落的内容能看到么？</p>
+	<p>上面实际上有两个段落的，第一个段落的<code>visibility</code>被设为hidden，整个段落变的不可见，但是它仍然在文档流中，并且
+	占有位置。这与display:none是有差别的，display:none的元素会从文档流中删除。visibility的值在CSS表中使用，CSS2规定，如果collapse用于
+	非表元素，含义与hidden相同。</p>
+</body>
+</html>
