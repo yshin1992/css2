@@ -10,6 +10,16 @@ headers{display: table-header-group;}
 game{display: table-row-group;}
 team{display: table-row;}
 label,name,score{display: table-cell;}
+table{border-collapse:collapse;border-spacing:1px 5px;border:1px solid;}
+td{border:1px solid}
+table.bd{border-collapse:collapse;border:3px outset gray;}
+table.bd td{border:1px solid gray;padding:0.5em;}
+#r2c1,#r2c2{border-style:hidden;}
+#r1c1,#r1c4{border-width:5px;}
+#r2c4{border-style:double;border-width:3px;}
+#r3c4{border-style:dotted;border-width:4px;}
+#r4c1{border-bottom-style:hidden;}
+#r4c3{border-top:13px solid silver;}
 </style>
 </head>
 <body>
@@ -40,6 +50,73 @@ label,name,score{display: table-cell;}
 			</team>
 		</game>
 	</scores>
-		
+	<h3>表标题</h3>
+	<p>caption-side的值：top|bottom初始值top，它应用于display值为table-caption的元素，有继承性。
+	<h3>表单元格边框</h3>
+	<p>border-collapse:collapse|separate,应用于display值为table或inline-table的元素，有继承性。</p>
+	<h4>边框间隔</h4>
+	<p>border-spacing：&lt;length&gt;&lt;length&gt;,应用于display值为table或inline-table的元素，有继承性。它完全可以代替HTML属性cellspcing</p>
+	<table>
+	<tr><td>cell one</td><td>cell two</td></tr>
+	<tr><td>cell three</td><td>cell four</td></tr>
+	</table>
+	<p>border-spacing值会应用于表本身，而不是单个表单元格。如果为td元素声明border-spacing,则会被忽略。</p>
+	<h4>处理空单元格</h4>
+	<p>empty-cell:show|hide,如果设置为show，会画出空单元格的边框和背景。为hide，则不会画出该单元格的任何部分。，注意这个属性除非border-collapse为seperate，否则会忽略该属性。</p>
+
+	<h3>匿名表对象</h3>
+	<p>对于下列标记中
+	<table>
+		<td>Name:</td><td><input type="text" /></td>
+	</table>
+	省略了<tr>标记，但是表格仍然能正常显示，这是因为CSS定义了一种机制，可以将"遗漏的"组件作为匿名对象插入</p>
+	<p>由此介绍一下对象插入规则</p>
+	<ol>
+		<li>如果一个table-cell元素的父元素不是table-row元素，则会在该table-row元素及其父元素之间插入一个匿名table-row元素。</li>
+		<li>如果一个table-row元素的父元素不是table、inline-table或table-row-group元素，则会在该table-row元素及其父元素之间插入一个匿名table元素。</li>
+		<li>如果一个table-column元素的父元素不是table、inline-table或table-column-group元素，则会在该table-column元素及其父元素之间插入一个匿名table元素。</li>
+		<li>如果一个table-column/row/header/footer-group或table-caption元素的父元素不是table元素，则会在该元素及其父元素之间插入一个匿名table元素。</li>
+		<li>如果一个table、inline-table的子元素不是table-column/row/header/footer-group或table-caption元素，则会在该table元素及其子元素之间插入一个匿名table-row元素。</li>
+		<li>如果一个table-row/header/footer-group元素的子元素不是table-row元素，则在该元素及其子元素之间插入一个匿名的table-row对象</li>
+		<li>如果一个table-row元素的子元素不是table-cell元素，则在该元素及其子元素之间插入一个匿名的table-cell对象</li>
+	</ol>
+	<h3>表层</h3>
+	<p>为了完成表的显示，CSS定义了6个不同的层，可以分别放表的不同方面。
+	<br/><img src="images/tablelayout.png"/>
+	</p>
+	<h3>合并单元格边框</h3>
+	<p><ul><li>display值为table或inline-table的元素不能有任何内边距，不过它们可以有外边距。因此，表的外围边框与其最外单元格的边界之间不会有任何间隔。</li>
+		<li>边框可以应用到单元格，行，行组，列和列组。表元素本身都有一个边框。</li>
+		<li>单元格边框之间绝对不会有任何间隔。实际上，如果边框相邻，就会相互合并，使得实际上只画一个合并边框。</li>
+		<li>一旦合并，单元格之间的边框会在单元格间的假想表格线上居中。</li>
+	</ul>
+	</p>
+	<h4>合并边框布局</h4>
+	<p><img src="images/table.png"/></p>
+	<h4>边框合并</h4>
+	<p>如果两个或多个边框相邻，它们会相互合并。实际上，并不是完全合并，而是看哪一个在其它边框中占上风。哪些边框会胜出，哪些边框会合并，有以下规则:
+	<ul>
+		<li>如果某个合并边框的border-style为hidden，它会优先于所有其他边框。</li>
+		<li>如果至少有一个合并边框的border-style值不是none，而且所有合并边框的border-style值不是hidden，则窄边框不敌更宽的边框。如果多个合并边框都有相同的宽度，则会考虑边框样式，顺序如下：double、solid、dashed、dotted、ridge、outset、groove、inset。因此如果两个边框宽度相同，一个是dashed边框，一个是outset边框，则边框将是dashed。</li>
+		<li>如果合并边框的样式和宽度都一样，但是颜色不同，则按下列顺序使用元素颜色:cell、row、row group、column、column group、table。</li>
+	</ul>
+	<table class="bd">
+		<tr>
+			<td id="r1c1">1-1</td><td id="r1c2">1-2</td>
+			<td id="r1c3">1-3</td><td id="r1c4">1-4</td>
+		</tr>
+		<tr>
+			<td id="r2c1">2-1</td><td id="r2c2">2-2</td>
+			<td id="r2c3">2-3</td><td id="r2c4">2-4</td>
+		</tr>
+		<tr>
+			<td id="r3c1">3-1</td><td id="r3c2">3-2</td>
+			<td id="r3c3">3-3</td><td id="r3c4">3-4</td>
+		</tr>
+		<tr>
+			<td id="r4c1">4-1</td><td id="r4c2">4-2</td>
+			<td id="r4c3">4-3</td><td id="r4c4">4-4</td>
+		</tr>
+	</table>
 </body>
 </html>
