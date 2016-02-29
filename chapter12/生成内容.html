@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>生成内容</title>
+<style>
+code{background:gray;color:white;}
+code:before{content:"|"}
+code:after{content:"|"}
+a[href]:after{content:"[" attr(href) "]";}
+quotation{display:block;}
+quote{quotes:"'" '"' "'" "'" "(" ")";}
+quote:before{content: open-quote;}
+quote:after{content: close-quote;}
+q:before{content:no-open-quote;}
+q:after{content:no-close-quote;}
+qq:before{content:open-quote;}
+qq:after{content:close-quote;}
+quotee:before{content: "{"}
+quotee:after{content: "}"}
+h3{counter-reset: sec;counter-increment: chapter;}
+h3:before{content: counter(chapter) ". ";}
+h4{counter-increment: sec 1;}
+h4:before{content: counter(chapter)"."counter(sec) ". ";margin:0.2em 1em;}
+p{margin:0.2em 1em;}
+list[type="ordered"]{counter-reset:ordered;}/* init value is 0 */
+list[type="ordered"] item {display:block}
+list[type="ordered"] item:before {counter-increment:ordered;/*init value is 1*/content:counter(ordered,lower-roman) ". ";margin:0.25em 0;}
+list[type="ordered"] item2{counter-increment:ordered;display:block}
+list[type="ordered"] item2:before {content:counters(ordered,".") "_";margin:0 0.25em;}
+</style>
+</head>
+<body>
+	<h3>生成内容</h3>
+	<p>最常见的生成内容就是列表标志。对于无序列表，表示是某种圆点。对于有序列表，标志是一个计数器。</p>
+	<h4>插入生成内容</h4>
+	<p>使用<code>:before</code>和<code>:after</code>伪元素。
+	</p>在CSS2和CSS2.1中明确的禁止浮动或定位:before和:after内容，还禁止使用列表样式属性和表属性。
+	另外还有以下限制:
+	<ul>
+		<li>如果:before或:after选择器的主体是块级元素，则display值只接受none,inline,block或mark，其他值都处理
+		为block.</li>
+		<li>如果:before或:after选择器的主体是行内元素，则display值只接受none,inline，其他值都处理
+		为inline.</li>
+	</ul>
+	<h3>指定内容</h3>
+	<p>content:normal,&lt;string&gt;|&lt;uri&gt;|&lt;counter&gt;|&lt;attr(&lt;identifier&gt;)&gt;|
+	open-quote|close-quote|no-open-quote|no-close-quote,应用于:before和:after伪元素。</p>
+	<h4>插入属性值</h4>
+	<p>例如:超链接<a href="http://www.baidu.com">百度</a></p>
+	<p>如果一个属性不存在，就会在相应位置上插入一个空字符串。</p>
+	<h4>生成引号</h4>
+	<p>quotes:[&lt;string&gt;&lt;string&gt;],none,它的初始值取决于具体的用户代理，应用于所有元素，并且有继承性。
+	<quotation>
+		<quote>I hate qutations.</quote><quotee>Ralph Waldo Emerson</quotee>
+	</quotation>
+	</p>
+	<h4>引用嵌套</h4>
+	<quotation>
+		<quote>I hate <q>Ralph Waldo Emerson</q> qutations.</quote>
+	</quotation>
+	<h4>no-open/close-quote关键字</h4>
+	<p>no-open/close-quote关键字能使引用深度+1，但不生成符号。例:
+	<quotation>
+		<quote>I hate <q>Ralph <qq>Waldo</qq> Emerson</q> qutations.</quote>
+	</quotation>
+	<h3>计数器</h3>
+	<p>最常见的计数器就是有序列表的列表标志。</p>
+	<h4>计数器重置</h4>
+	<p>conter-reset:[&lt;identifier&gt;&lt;integer&gt;]+ | none,它的初始值取决于用户代理，没有继承性，但应用于所有元素。</p>
+	<h4>计数器递增</h4>
+	<p>counter-increment:[&lt;identifier&gt;&lt;integer&gt;]+ | none,它的初始值取决于用户代理，没有继承性，但应用于所有元素。</p>
+	<p>于counter-reset类型，counter-increment也接受标识符——整数对。其中整数部分既可以为正数也可为负数。与counter-reset不同的是，如果counter-increment
+	中标识符中少了一个整数，则默认为1，而不是0。</p>
+	<p>如果想为每个计数器定义一个列表样式，可以在计数器后面增加一个list-style-type关键字，例如:<code>counter(ordered,low-roman)</code>
+	<list type="ordered">
+		<item>One</item><item>Two</item><item>Three</item>
+	</list>
+	</p>
+	<p>注意，display为none的元素并不会使计数器递增，而visibility为hidden的会使计数器递增。</p>
+	<h3>计数器和作用域</h3>
+	<p>以上使用counter的方法书写嵌套规则，非常不方便(考虑嵌套10层的情况)，这里我们可以使用counters来实现。</p>
+	<p>
+		<list type="ordered">
+			<item2>One
+				<list type="ordered">
+					<item2>One.one</item2>
+					<item2>One.two
+						<list type="ordered">
+							<item2>One.two.one</item2><item2>One.two.two</item2>
+						</list>
+					</item2>
+					<item2>One.three</item2>
+				</list>
+			</item2>
+			<item2>Two</item2>
+			<item2>Three</item2>
+		</list>
+	</p>
+</body>
+</html>
