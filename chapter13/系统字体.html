@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>系统字体</title>
+<style>
+code{background:gray;color:white;}
+a{cursor: help;}
+a:after{content: "[ " attr(href) " ]"}
+span.outline{outline:3px dotted gray;}
+</style>
+</head>
+<body>
+	<h3>系统字体</h3>
+	<p>CSS2定义了6个系统字体关键字。
+	<ul style="font:caption">
+		<li>caption:由标题控件使用的字体样式，如按钮和下拉控件。</li>
+		<li>icon:操作系统图标标签使用的字体样式，如硬盘驱动器、文件夹和文件图标。</li>
+		<li>menu:下拉菜单和菜单列表中文本使用的字体样式。</li>
+		<li>message-box:对话框中文本使用的字体样式。</li>
+		<li>small-caption:由标题小控件的标签使用的字体样式。</li>
+		<li>status-bar:窗口状态条中使用的字体样式。</li>
+	</ul>
+	这些值只能应用于font属性,它们本身就是简写形式。
+	</p>
+	<h3>系统颜色</h3>
+	<p>
+		CSS2中定义了一系列的系统颜色，但是要注意不推荐使用系统颜色，因为CSS2.1中已经废弃了
+		这些关键字，所以这里不再过多描述。
+	</p>
+	<h3>光标</h3>
+	<p>cursor:[&lt;uri&gt;]*|auto,default,pointer,crosshair,move,e-resize,ne-resize
+	,nw-resize,n-resize,se-resize,sw-resize,s-resize,w-resize,text,wait,help,progress,
+	它应用于所有元素，初始值为auto，并且有继承性。</p>
+	<p>这个段落的超链接的光标样式为help，<a href="http://www.baidu.com">百度</a>
+	</p>
+	<h3>轮廓</h3>
+	<p>轮廓有点类似于边框，但二者有两个重要的区别：
+	<ul>
+		<li>轮廓不会参与到文档流中。因此轮廓出现或消失不会导致文档的重新显示。</li>
+		<li>轮廓可能不是矩形。</li>
+	</ul>
+	<p>CSS2规范规定，轮廓可以画在边框的外边。设置轮廓样式使用<code>outline-style</code>
+	<br/>outline-style:none,dotted,dashed,groove,double,solid,ridge,inset,outset,它可以应用于所有元素，无继承性。
+	<br/>outline-width:thin,medium,thick,&lt;length&gt;它可以应用于所有元素，无继承性。
+	<br/>outline-color:&lt;color&gt;,invert.
+	outline也支持简写形式outline:outline-color,outline-width,outline-style.
+	</p>
+	<p>这个段落中的一段文本，<span class="outline">我们有轮廓，<br/>你们可以看到么<br/>
+	而且我们还是不归则的和哈哈哈哈</span>
+	</p>
+</body>
+</html>
