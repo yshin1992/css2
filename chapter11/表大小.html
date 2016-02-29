@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>表大小</title>
+<style>
+code{background:gray;color:white;}
+table.fixed{border-collapse: collapse;table-layout: fixed;width:200px;}
+table.fixed td{width:50px;border:1px solid;border-color: yellow}
+table.fixed .ex{width:200px}
+</style>
+</head>
+<body>
+	<h3>表大小</h3>
+	<p>确定表的宽度有两种不同的方法：固定宽度布局和自动宽度布局。确定使用哪一种方式的关键字是<code>table-layout</code></p>
+	<p>table-layout:fixed|auto;默认值是auto，应用于display值为table或inline-table的元素，有继承性</p>
+	<h3>固定布局</h3>
+	<p>固定布局速度快，因为布局不依赖表单元格的内容，它的布局由该表及该表中列和单元格的width值决定的。
+	<ol>
+		<li>width值不是auto的所有列元素会根据width值设置该列的宽度。</li>
+		<li>如果一个列的宽度为auto，不过。表首行中位于该列的单元格width不是width，则根据该单元格宽度设置此列的宽度。如果这个单元格
+		跨多列，则将宽度在这些列上进行平均分配。</li>
+		<li>如果经过以上两步，列表宽度仍为auto，会自动确定其大小，使宽度尽可能相等。</li>
+	</ol>
+	<p>此时，表的宽度设置为表的width值或列的宽度之和（取其中较大者）。如果表宽度大于列宽之和，将二者之差除以列数，再
+	将得到的这个宽度增加到每一列上。</p>
+	<table class="fixed">
+		<tr>
+			<td>Title</td><td>Title</td><td>Title</td>
+		</tr>
+		<tr>
+			<td class="ex">Content</td><td>Content</td><td>Content</td>
+		</tr>
+		<tr>
+			<td>Content</td><td>Content</td><td>Content</td>
+		</tr>
+	</table>
+	<p>值得注意的是，在大多数用户代理中，只要表的width为auto就会触发自动布局模型，
+	而不论table-layout的值是什么，不过这一点不能保证。</p>
+	<h3>自动布局</h3>
+	<p>自动比较慢是因为在用户代理查看完表的所有内容之前无法确定表的布局。
+	<br/><img src="images/table_auto.png"/><img src="images/table_auto2.png"/>
+	</p>
+	<h3>表的高度</h3>
+	<p>表的高度计算在很大程度上留给用户代理决定。</p>
+	<h3>对齐</h3>
+	<p>水平对齐是最简单的，使用text-align属性即可；垂直对齐使用vertical-align属性。<br/>
+	<p>注意当vertical-align值为sub、super、text-top和text-bottom应用到表单元格时，会被忽略。</p>
+	
+</body>
+</html>
