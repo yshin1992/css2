@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度一下，你就知道</title>
+		<style>
+			html,body{
+				margin:0;
+				padding:0;
+			}
+			.nav-leading{
+				height:32px;
+				width:100%;
+				line-height:32px;
+				border-bottom:1px solid #ebebeb;
+				font-size:13px;
+				padding:0;
+				min-width:1000px;
+			}
+			ul.nav-leading-right{
+				display:inline;
+				font-weight:bold;
+				float:right;
+				list-style:none;
+				margin:0;
+			}
+			ul.nav-leading-right li{
+				display:inline;
+				margin-left:19px;
+			}
+			ul.nav-leading-right li a{
+				color:#555;
+			}
+			.s-mod-weather{
+				float:left;
+				margin-right:15px;
+				color:#555;
+			}
+			.nav-leading-left{
+				padding-left:15px;
+				font-size:12px;
+			}
+			#pollute-level{
+				color:orange;
+				font-weight:bold;
+			}
+			#city+img{
+				vertical-align:middle;
+			}
+			.nav-leading-left a{
+				display:inline-block;
+				margin-right:19px;
+				color:#555;
+			}
+			div.user-info,div.user-setting{
+				font-size:13px;
+				font-weight:normal;
+				float:right;	
+			}
+			div.user-setting{
+				margin-right:19px;
+			}
+			div.user-info a,div.user-setting a{
+				color:#555;
+				display:inline-block;
+				margin-left:19px;
+				position:relative;
+			}
+			div.user{
+				position:absolute;
+				border:1px solid #e3e3e3;
+				box-shadow:1px 1px 5px #d1d1d1;
+				top:32px;
+				margin-left:19px;
+				width:70px;
+				font-size:12px;
+				display:none;
+			}
+			div.user a{
+				display:block;
+				text-decoration:none;
+				color:#555;
+				height:25px;
+				padding-left:8px;
+				line-height:25px;
+				margin-left:0;
+			}
+			div.user a:hover,div.user a:active{
+				color:#fff;
+				background:#38f;
+			}
+			a.s-user-setting{
+				position:relative;
+			}
+			div.s_bd_more{
+				color:#fff;
+				background:#38f;
+				font-size:13px;
+				float:right;
+				width:85px;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav-leading">
+			<div class="s_bd_more">更多产品</div>
+			<div class="user-setting" onmouseover="show_user_info()" onmouseout="hide_user_info()">
+				<a href="#" class="s-user-setting">设置</a>
+				<div class="user" id="user_div"><a href="">搜索设置</a><a href="">高级搜索</a><a href="">关闭预测</a><a href="">搜索历史</a></div>
+			</div>
+			<div class="user-info"  onmouseover="show_setting()" onmouseout="hide_setting()">
+				<a href="#" class="s-user-top">滑头鬼之孙奴良</a>
+				<div class="user" id="setting_div"><a href="#">我的VIP</a><a href="">个人中心</a><a href="">账号设置</a><a href="">意见反馈</a><a href="">退出</a>
+				</div>
+			</div>
+			<ul class="nav-leading-right">
+				<li><a href="#">糯米</a></li>
+				<li><a href="#">新闻</a></li>
+				<li><a href="#">hao123</a></li>
+				<li><a href="#">地图</a></li>
+				<li><a href="#">视频</a></li>
+				<li><a href="#">贴吧</a></li>
+			</ul>
+			<div class="nav-leading-left">
+				<div class="s-mod-weather"><span id="city">南京</span> : <img src="images/a7.png"/> 17℃ <span id="pollute-level">中度</span> 167 |
+				</div><a href="">宝箱</a><a href="">换肤</a><a href="">消息</a>
+			</div>
+		</div>
+	</body>
+	<script>
+		function show_user_info(){
+			document.getElementById("user_div").style.display="block";
+		}
+		function hide_user_info(){
+			document.getElementById("user_div").style.display="none";
+		}
+		function show_setting(){
+			document.getElementById("setting_div").style.display="block";
+		}
+		function hide_setting(){
+			document.getElementById("setting_div").style.display="none";
+		}
+	</script>
+</html>
+
