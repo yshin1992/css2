@@ -1,0 +1,90 @@
+/**  css for index */
+html,body{
+    margin:0;
+    padding:0;
+}
+.nav-leading{
+    height:32px;
+    width:100%;
+    line-height:32px;
+    border-bottom:1px solid #ebebeb;
+    font-size:13px;
+    padding:0;
+    min-width:1000px;
+}
+ul.nav-leading-right{
+    display:inline;
+    font-weight:bold;
+    float:right;
+    list-style:none;
+    margin:0;
+}
+ul.nav-leading-right li{
+    display:inline;
+    margin-left:19px;
+}
+ul.nav-leading-right li a{
+    color:#555;
+}
+.s-mod-weather{
+    float:left;
+    margin-right:15px;
+    color:#555;
+}
+.nav-leading-left{
+    padding-left:15px;
+    font-size:12px;
+}
+#pollute-level{
+    color:orange;
+    font-weight:bold;
+}
+#city+img{
+    vertical-align:middle;
+}
+.nav-leading-left a{
+    display:inline-block;
+    margin-right:19px;
+    color:#555;
+}
+div.user-info,div.user-setting{
+    font-size:13px;
+    font-weight:normal;
+    float:right;
+}
+div.user-setting{
+    margin-right:19px;
+}
+div.user-info a,div.user-setting a{
+    color:#555;
+    display:inline-block;
+    margin-left:19px;
+    position:relative;
+}
+div.user{
+    position:absolute;
+    border:1px solid #e3e3e3;
+    box-shadow:1px 1px 5px #d1d1d1;
+    top:32px;
+    margin-left:19px;
+    width:70px;
+    font-size:12px;
+    display:none;
+}
+div.user a{
+    display:block;
+    text-decoration:none;
+    color:#555;
+    height:25px;
+    padding-left:8px;
+    line-height:25px;
+    margin-left:0;
+}
+div.user a:hover,div.user a:active{
+    color:#fff;
+    background:#38f;
+}
+a.s-user-setting{
+    position:relative;
+}
+

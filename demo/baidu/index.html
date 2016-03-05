@@ -3,108 +3,54 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>百度一下，你就知道</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<style>
-			html,body{
-				margin:0;
-				padding:0;
-			}
-			.nav-leading{
-				height:32px;
-				width:100%;
-				line-height:32px;
-				border-bottom:1px solid #ebebeb;
-				font-size:13px;
-				padding:0;
-				min-width:1000px;
-			}
-			ul.nav-leading-right{
-				display:inline;
-				font-weight:bold;
-				float:right;
-				list-style:none;
-				margin:0;
-			}
-			ul.nav-leading-right li{
-				display:inline;
-				margin-left:19px;
-			}
-			ul.nav-leading-right li a{
-				color:#555;
-			}
-			.s-mod-weather{
-				float:left;
-				margin-right:15px;
-				color:#555;
-			}
-			.nav-leading-left{
-				padding-left:15px;
-				font-size:12px;
-			}
-			#pollute-level{
-				color:orange;
-				font-weight:bold;
-			}
-			#city+img{
-				vertical-align:middle;
-			}
-			.nav-leading-left a{
-				display:inline-block;
-				margin-right:19px;
-				color:#555;
-			}
-			div.user-info,div.user-setting{
-				font-size:13px;
-				font-weight:normal;
-				float:right;	
-			}
-			div.user-setting{
-				margin-right:19px;
-			}
-			div.user-info a,div.user-setting a{
-				color:#555;
-				display:inline-block;
-				margin-left:19px;
-				position:relative;
-			}
-			div.user{
-				position:absolute;
-				border:1px solid #e3e3e3;
-				box-shadow:1px 1px 5px #d1d1d1;
-				top:32px;
-				margin-left:19px;
-				width:70px;
-				font-size:12px;
-				display:none;
-			}
-			div.user a{
-				display:block;
-				text-decoration:none;
-				color:#555;
-				height:25px;
-				padding-left:8px;
-				line-height:25px;
-				margin-left:0;
-			}
-			div.user a:hover,div.user a:active{
-				color:#fff;
-				background:#38f;
-			}
-			a.s-user-setting{
-				position:relative;
-			}
-			div.s_bd_more{
-				color:#fff;
-				background:#38f;
-				font-size:13px;
-				float:right;
-				width:85px;
-				text-align:center;
-			}
+            div.s_bd_more{
+                color:#fff;
+                background:#38f;
+                font-size:13px;
+                float:right;
+                width:85px;
+                position:relative;
+                text-align:center;
+            }
+            div.s_bd_more>div{
+                position:absolute;
+                top:32px;
+                width:85px;
+                text-align:center;
+                display:none;
+                background: #f9f9f9;
+            }
+            div.s_bd_more>div a{
+                display:block;
+                text-decoration:underline;
+                color:#555;
+                width:66px;
+                height: 76px;
+                margin:0 auto;
+                font-size:12px;
+                border-bottom:#f0f0f0 1px solid;
+            }
+            div.s_bd_more>div a img{
+                display:block;
+                width:auto;
+                margin:10px auto 5px;
+            }
 		</style>
 	</head>
 	<body>
 		<div class="nav-leading">
-			<div class="s_bd_more">更多产品</div>
+			<div class="s_bd_more" onmouseover="show_more()" onmouseout="hide_more()">更多产品
+				<div id="product">
+                    <a href="#"><img src="images/music.png"/>音乐</a>
+                    <a href="#"><img src="images/image.png"/>图片</a>
+                    <a href="#"><img src="images/zhidao.png"/>知道</a>
+                    <a href="#"><img src="images/wenku.png"/>文库</a>
+                    <a href="#"><img src="images/bang.png"/>风云榜</a>
+                    <a href="#"><img src="images/tuiguang.png"/>推广</a>
+                </div>
+			</div>
 			<div class="user-setting" onmouseover="show_user_info()" onmouseout="hide_user_info()">
 				<a href="#" class="s-user-setting">设置</a>
 				<div class="user" id="user_div"><a href="">搜索设置</a><a href="">高级搜索</a><a href="">关闭预测</a><a href="">搜索历史</a></div>
@@ -141,6 +87,12 @@
 		function hide_setting(){
 			document.getElementById("setting_div").style.display="none";
 		}
+        function show_more(){
+            document.getElementById("product").style.display="block";
+        }
+        function hide_more(){
+            document.getElementById("product").style.display="none";
+        }
 	</script>
 </html>
 
